@@ -17,9 +17,9 @@ public class CartitemsController {
     private int maxid = 3;
 
     public CartitemsController() {
-        cartItems.add(new CartitemDto(1, "Coronabier"));
-        cartItems.add(new CartitemDto(2, "Klopapier"));
-        cartItems.add(new CartitemDto(3, "Desinkfektionsmittel"));
+        cartItems.add(new CartitemDto(1, "Coronabier", 2));
+        cartItems.add(new CartitemDto(2, "Klopapier", 4));
+        cartItems.add(new CartitemDto(3, "Desinkfektionsmittel", 1));
     }
 
     @GetMapping
@@ -56,6 +56,7 @@ public class CartitemsController {
         for (CartitemDto cartitem: cartItems) {
             if(cartitem.getId()== cartitemDto.getId()) {
                 cartitem.setName(cartitemDto.getName());
+                cartitem.setAnzahl(cartitemDto.getAnzahl());
                 return cartitem;
             }
         }
